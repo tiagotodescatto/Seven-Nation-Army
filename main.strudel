@@ -1,0 +1,292 @@
+setcps(124/60)
+
+const bass_intro = stack(
+  // Bass
+  note("<E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8)
+)
+
+const drums_intro = stack(
+  // Bass
+  note("<[E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2]@72*9 [G1]@4*8 [A1]@4*8>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("< [bd, fd, hh]@36*36 [[bd, hh] [bd, sd, hh]]@36*18 [[bd, cr] bd bd bd]@8*4>")
+    .gain(0.5),
+
+  // Vocals
+  note("< ~@2.5 E4@0.5 E4@0.5 E4@0.5 G4@0.5 E4@0.5 E4@1 ~@3.5 D4@0.5 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.75 E4@0.75 E4@0.5 ~@2.5 E4@0.5 E4@0.5 E4@0.5 B4@0.5 E4@0.5 E4@1 ~@4 E4@0.5 D4@0.5 E4@1 E4@1 E4@0.5 D4@0.5 E4@0.75 E4@0.75 E4@1 ~@3 E4@0.5 E4@0.5 B4@0.5 B4@0.5 A4@0.5 A4@0.5 G4@0.75 F#4@0.75 E4@1 E4@0.5 E4@0.5 E4@0.5 D#4@0.75 D#4@0.75 E4@0.5 ~@8 E4@0.5 D4@0.5 E4@1 E4@0.75 E4@0.75 E4@1 E4@0.5 E4@0.5 D4@0.5 E4@0.75 E4@0.75 E4@0.5 ~@7 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.75 E4@0.75 E4@1.5 E4@1 G4@0.5 E4@0.5 E4@0.5 E4@0.5>")
+    .sound("piano"),
+
+  // Rhythm Guitar L
+  note("< ~~@72 [G2, D2]@4*8 [A2, D2, G2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.25),
+
+  // Rhythm Guitar R
+  note("< ~~@72 [G2, D2]@4*8 [A2, D2, G2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.25),
+
+  // Lead Guitar L
+  note("< ~~@72 [G2, D2]@4*8 [A2, D2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.3)
+    .gain(0.5),
+
+  // lead Guitar R
+  note("< ~~@72 [G2, D2]@4*8 [A2, D2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.8)
+    .gain(0.5)
+)
+
+const chorus = stack(
+  // Bass
+  note("<[E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2]@32*4>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("<[bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr]@0.75 [bd, cr]@0.75 [sd, cr]@0.5 [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr]@0.75 [bd, cr]@0.75 [sd, cr]@0.5 [bd, cr] [sd, cr] [bd, cr] [sd, cr]>")
+    .gain(0.65),
+
+  // Rhythm Guitar L
+  note("<[E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, E4]@2 [B3, F#3, B4, D#4]@2 [E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, B4]@0.75 [D3, A3, D4, F#4]@0.75 [C3, G3, C4, B4]@0.5 [B3, F#3, B4, D#4]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.4),
+
+  // Rhythm Guitar R
+  note("<[E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, E4]@2 [B3, F#3, B4, D#4]@2 [E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, B4]@0.75 [D3, A3, D4, F#4]@0.75 [C3, G3, C4, B4]@0.5 [B3, F#3, B4, D#4]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.4),
+
+  // Lead Guitar L
+  note("<[E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@2 [B3, F#3]@2 [E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@0.75 [D3, A3]@0.75 [C3, G3]@0.5 [B3, F#3]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.3)
+    .gain(0.7),
+    
+
+  // lead Guitar R
+  note("<[E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@2 [B3, F#3]@2 [E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@0.75 [D3, A3]@0.75 [C3, G3]@0.5 [B3, F#3]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.8)
+    .gain(0.7)
+    
+)
+
+const post_chorus_labubu = stack(
+  // Bass
+  note("<[[G1]@4*8 [A1]@4*8]@8*1 [E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2]@32*4>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("<[bd, fd, cr] bd bd bd [bd, cr] ~@19 [bd, fd]@16*16 >")
+    .gain(0.65),
+
+  // Rhythm Guitar L
+  note("<[G2, D2]@4*8 [A2, D2, G2]@4*8 ~@40 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.4),
+
+  // Rhythm Guitar R
+  note("<[G2, D2]@4*8 [A2, D2, G2]@4*8 ~@40 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.4),
+
+  // Lead Guitar L
+  note("<[G2, D2]@4*8 [A2, D2, A3]@4*8 ~@40>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.75)
+    .pan(0.3)
+    .gain(0.7),
+
+  // lead Guitar R
+  note("<[G2, D2]@4*8 [A2, D2, A3]@4*8 ~@40 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.75)
+    .pan(0.8)
+    .gain(0.7),
+
+  // Vocals
+  note("< ~@38.5 E4@0.5 E4@0.5 E4@0.5>")
+    .sound("piano"),
+)
+
+const verse2 = stack(
+  // Bass
+  note("<E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("< [bd, fd, hh]@32*32 [[bd, hh] [bd, sd, hh]]@32*16 [[bd, cr] bd bd bd]@8*4>")
+    .gain(0.5),
+
+  // Vocals
+  note("<G4@0.5 E4@0.5 E4@0.5 D4@0.5 ~@4 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@1 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.75 E4@0.25 ~@2.5 E4@0.5 E4@0.5 E4@0.5 A4@0.5 E4@0.5 E4@0.5 D4@0.5 ~@4 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.5 E4@0.5 E4@0.5 D4@0.5 E4@0.75 E4@0.75 E4@0.5 ~@2.5 E4@0.5 E4@0.5 E4@0.5 B4@0.5 B4@0.5 A4@0.5 A4@0.5 G4@0.75 F#4@0.75 E4@1 E4@0.5 E4@0.5 E4@0.5 D#4@0.5 D#4@0.5 D#4@0.5 E4@0.5 ~@7.5 D4@0.5 E4@0.5 D4@0.5 E4@0.5 D4@0.5 E4@0.75 E4@0.75 E4@1 E4@0.5 E4@1 D#4@0.5 D#4@1 E4@1 ~@6.5 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.5 E4@0.75 G4@0.75 E4@1 E4@1 G4@0.75 E4@0.75 E4@0.5>")
+    .sound("piano"),
+
+  // Rhythm Guitar L
+  note("< ~~@64 [G2, D2]@4*8 [A2, D2, G2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.25),
+
+  // Rhythm Guitar R
+  note("< ~~@64 [G2, D2]@4*8 [A2, D2, G2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.25),
+
+  // Lead Guitar L
+  note("< ~~@64 [G2, D2]@4*8 [A2, D2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.3)
+    .gain(0.5),
+
+  // lead Guitar R
+  note("< ~~@64 [G2, D2]@4*8 [A2, D2]@4*8>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.8)
+    .gain(0.5)
+)
+
+const chorus2 = stack(
+  // Bass
+  note("<[E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2]@32*4>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("<[bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr]@0.75 [bd, cr]@0.75 [sd, cr]@0.5 [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr] [sd, cr] [bd, cr]@0.75 [bd, cr]@0.75 [sd, cr]@0.5 [bd, cr] [sd, cr] [bd, cr] [sd, cr]>")
+    .gain(0.65),
+
+  // Rhythm Guitar L
+  note("<[E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, E4]@2 [B3, F#3, B4, D#4]@2 [E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, B4]@0.75 [D3, A3, D4, F#4]@0.75 [C3, G3, C4, B4]@0.5 [B3, F#3, B4, D#4]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.25),
+
+  // Rhythm Guitar R
+  note("<[E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, E4]@2 [B3, F#3, B4, D#4]@2 [E3, B3, E4]@1.5 [E3, B3, E4]@0.5 [G3, D4, G4, B4]@0.75 [E3, B3, E4]@0.75 [D3, A3, D4]@0.5 [C3, G3, C4, B4]@0.75 [D3, A3, D4, F#4]@0.75 [C3, G3, C4, B4]@0.5 [B3, F#3, B4, D#4]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.25),
+
+  // Lead Guitar L
+  note("<[E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@2 [B3, F#3]@2 [E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@0.75 [D3, A3]@0.75 [C3, G3]@0.5 [B3, F#3]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.3)
+    .gain(0.5),
+    
+  // lead Guitar R
+  note("<[E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@2 [B3, F#3]@2 [E3, B3]@1.5 [E3, B3]@0.5 [G3, D4]@0.75 [E3, B3]@0.75 [D3, A3]@0.5 [C3, G3]@0.75 [D3, A3]@0.75 [C3, G3]@0.5 [B3, F#3]@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.8)
+    .gain(0.5),
+
+  // lead Guitar Center
+  note("<[E4@1.5 E4@0.5 E4@0.75 E4@0.75 E4@0.5 G4@2 F#4@2 E4@1.5 E4@0.5 G4@0.75 A4@0.75 G4@0.5 G4@0.75 A4@0.75 G4@0.5 F#@2]@32*2 E5@1 E5@0.25 E5@0.25 E5@0.5 G5@0.75 E5@0.75 E5@0.5 G5@2 F#5@2 E5@1.5 E5@0.5 G5@0.75 A5@0.75 G5@0.5 G5@0.75 A5@0.75 G5@0.5 F#5@2 E5@1.5 E5@0.25 E5@0.25 G5@0.75 E5@0.75 E5@0.5 A5@2 F#5@2 E5@1.5 E5@0.25 E5@0.25 G5@0.75 E5@0.75 E5@0.5 G5@0.75 E5@0.75 D#5@1 D5@2>")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.5)
+    .gain(1.4)
+    
+)
+
+const post_solo = stack(
+  // Bass
+  note("<[[G1]@4*8 [A1]@4*8]@8*1 [E2@1.5 E2@0.5 G2@0.75 E2@0.75 D2@0.50 C2@2 B1@2]@32*4>")
+    .sound("gm_electric_bass_pick")
+    .pan(0.2)
+    .gain(0.8),
+
+  // Drums
+  s("<[bd, fd, cr] bd bd bd [bd, cr] ~@19 [bd, fd]@16*16 >")
+    .gain(0.65),
+
+  // Rhythm Guitar L
+  note("<[G2, D2]@4*8 [A2, D2, G2]@4*8 ~@40 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0)
+    .gain(0.4),
+
+  // Rhythm Guitar R
+  note("<[G2, D2]@4*8 [A2, D2, G2]@4*8 ~@40 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(1)
+    .gain(0.4),
+
+  // Lead Guitar L
+  note("< [G2, D2]@4*8 [A2, D2, G2]@4*8 [E3, B3, E4]@8 E3@8 ~@24 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.75)
+    .pan(0.3)
+    .gain(0.7),
+
+  // lead Guitar R
+  note("<[G2, D2]@4*8 [A2, D2, G2]@4*8 [E3, B3, E4]@8 E3@8 ~@24 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.75)
+    .pan(0.8)
+    .gain(0.7),
+
+  // lead Guitar Center
+  note("< ~@8 E2@8 [E2, E3]@8 ~@24 >")
+    .sound("gm_electric_guitar_jazz")
+    .dist(0.6)
+    .pan(0.5)
+    .gain(1.4),
+  
+  // Vocals
+  note("< ~@38.5 E4@0.5 E4@0.5 E4@0.5>")
+    .sound("piano"),
+)
+
+arrange(
+  [16, bass_intro],
+  [80, drums_intro],
+  [32, chorus],
+  [40, post_chorus_labubu],
+  [72, verse2],
+  [64, chorus2],
+  [40, post_solo]
+)
